@@ -5,7 +5,7 @@ services:
       context: ./nodejs
     ports:
       - "3000:3000"
-  nginx:
+  nginx-proxy:
     restart: always
     build:
       context: ./nginx
