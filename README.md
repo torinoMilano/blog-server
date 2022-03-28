@@ -12,8 +12,12 @@ Comments:
 - create a new comment (name is optional, text is required)
 - update an existing comment
 
-## Prerequisite
-Docker and docker-compose installed, up and running
+## Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/en/download/) >= 17
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
 
 ## Directories
 - nodejs
