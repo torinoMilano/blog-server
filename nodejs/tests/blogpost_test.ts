@@ -26,6 +26,10 @@ describe("testing anatomy of a blogpost", function () {
         expect(post.getMinDate()).to.be.equal(created_on)
         expect(post.getMinDate()).to.be.equal(last_edited)
     });
+    it(`should get created_on or last_edited a few seconds ago"`, () => {
+        expect(post.geRelativeLastEdited()).to.be.equal("a few seconds ago")
+        expect(post.geRelativeCreatedOn()).to.be.equal("a few seconds ago")
+    });
     it('should work', () => {
         expect(true).to.be.true;
     })

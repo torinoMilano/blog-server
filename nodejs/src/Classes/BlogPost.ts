@@ -1,8 +1,10 @@
 import {v4 as uuid} from "uuid";
 import dayjs from "dayjs";
 import minMax from "dayjs/plugin/minMax"
+import relativeTime from "dayjs/plugin/relativeTime"
 
 dayjs.extend(minMax) // use plugin
+dayjs.extend(relativeTime) // use plugin
 
 export class Comment {
     name?: string;
@@ -37,6 +39,13 @@ export class BlogPost {
     getMinDate(): number {
         const {last_edited, created_on} = this;
         return dayjs.min(dayjs(last_edited), dayjs(created_on)).valueOf();
+    }
+
+    geRelativeCreatedOn(): string {
+        return dayjs().to(dayjs(this.created_on));
+    }
+    geRelativeLastEdited(): string {
+        return dayjs().to(dayjs(this.last_edited));
     }
 }
 
