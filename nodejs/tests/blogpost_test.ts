@@ -3,10 +3,10 @@ import {BlogPost} from "../src/Classes/BlogPost";
 
 
 describe("testing anatomy of a blogpost", function () {
-    let title = "this is a blog";
-    let body = "it is really a blog";
-    let post:BlogPost = new BlogPost(title, body)
-    let {author, last_edited, created_on, comments} = post;
+    const title = "this is a blog";
+    const body = "it is really a blog";
+    const post:BlogPost = new BlogPost(title, body)
+    const {author, last_edited, created_on, comments} = post;
     it(`should get title equal to "${title}"`, () => {
         expect(title, "title checking").to.be.equal(post.title)
     });

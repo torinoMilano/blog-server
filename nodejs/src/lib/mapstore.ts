@@ -1,13 +1,15 @@
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
+import {BlogPost} from "../Classes/BlogPost";
 
 const dataDir = "data";
 
 class MapStore {
-    constructor(filename) {
+    filepath: string;
+    constructor(filename: string) {
         this.filepath = path.resolve(dataDir, filename);
     }
-    async save(data) {
+    async save(data: Map<string, BlogPost>) {
         console.log(`writing to ${this.filepath}`);
         const serializedData = JSON.stringify(Array.from(data.entries()));
         await writeFile(this.filepath, serializedData);

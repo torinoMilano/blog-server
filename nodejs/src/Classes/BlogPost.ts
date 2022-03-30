@@ -24,7 +24,7 @@ export class BlogPost {
     comments: Comment[];
 
     constructor(title: string, body: string, author?: string) {
-        let today_date = Date.now();
+        const today_date = Date.now();
         this.comments = [];
         this.id = uuid();
         this.title = title;
