@@ -7,10 +7,12 @@ dayjs.extend(minMax) // use plugin
 dayjs.extend(relativeTime) // use plugin
 
 export class Comment {
-    name?: string;
+    id: string;
     text: string;
+    name?: string;
 
     constructor(text: string, name?: string) {
+        this.id = uuid();
         this.text = text;
         this.name = name;
     }

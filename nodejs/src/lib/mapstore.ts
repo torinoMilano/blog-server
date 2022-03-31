@@ -1,8 +1,9 @@
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
-import {BlogPost} from "../Classes/BlogPost";
+import {BlogPost} from "../classes/BlogPost";
 
 const dataDir = "data";
+const initialData:BlogPost = new BlogPost("First title", "this is my first blog", "me")
 
 class MapStore {
     filepath: string;
@@ -18,7 +19,14 @@ class MapStore {
     async read() {
         console.log(`reading from ${this.filepath}`);
         const data = await readFile(this.filepath, "utf-8");
-        const parsed = JSON.parse(data);
+        let parsed = null;
+        try {
+            parsed = JSON.parse(data);
+        } catch (e) {
+            // create and store dummy first blog post
+            parsed = {id: initialData.id, initialData}
+        }
+
         return new Map(parsed);
     }
 }

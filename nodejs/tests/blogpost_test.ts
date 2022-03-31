@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import {BlogPost} from "../src/Classes/BlogPost";
+import {BlogPost} from "../src/classes/BlogPost";
 
 
 describe("testing anatomy of a blogpost", function () {
