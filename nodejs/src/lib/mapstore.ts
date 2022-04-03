@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import {BlogPost} from "../classes/BlogPost";
+import {logger} from "../classes/Logger";
 
 const dataDir = "data";
 const initialData:BlogPost = new BlogPost("First title", "this is my first blog", "me")
@@ -11,13 +12,13 @@ class MapStore {
         this.filepath = path.resolve(dataDir, filename);
     }
     async save(data: Map<string, BlogPost>) {
-        console.log(`writing to ${this.filepath}`);
+        logger.info(`writing to ${this.filepath}`);
         const serializedData = JSON.stringify(Array.from(data.entries()));
         await writeFile(this.filepath, serializedData);
     }
 
     async read() {
-        console.log(`reading from ${this.filepath}`);
+        logger.info(`reading to ${this.filepath}`);
         const data = await readFile(this.filepath, "utf-8");
         let parsed = null;
         try {
@@ -27,7 +28,7 @@ class MapStore {
             parsed = {id: initialData.id, initialData}
         }
 
-        return new Map(parsed);
+        return new Map<string, BlogPost>(parsed);
     }
 }
 

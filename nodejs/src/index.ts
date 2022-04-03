@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import routes from "./routes";
+import {logger} from "./classes/Logger";
 
 const port = 3000
 const app = express();
@@ -12,4 +13,4 @@ app.use(routes);
 
 app.get('/', (req, res) => res.send('Welcome to blog post api'))
 
-app.listen(`${port}`, () => console.log(`Server is up and running on port ${port}`));
+app.listen(`${port}`, () => logger.info(`Server is up and running on port ${port}`));
