@@ -19,7 +19,7 @@ export const list = async (req: Request, res: Response) => {
     if (!(sort === SORT_ASC || sort === SORT_DESC)) {
         return errorResponse(req, res, "Invalid sort Params");
     }
-    const blogPosts = BlogPostApi.getBlogPosts(sort);
+    const blogPosts = await BlogPostApi.getBlogPosts(sort);
     res.json({blogPosts});
 }
 

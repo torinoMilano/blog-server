@@ -29,12 +29,22 @@ node service containing the api
 proxy to request directly from http://localhost/
 
 ## Build
-just run build.sh
+From root of directory
 
 ```./build.sh```
+
+Will use docker compose nginx and node js to expose the API to address http://localhost/blogpost/v1/api/blog  
 
 ## Testing 
 
 ```
-cd nodejs; npm run test
+cd nodejs; 
+npm run test
 ```
+Running newman test via docker
+After sucessfully run the ./build.sh command
+
+Just run 
+```bash 
+./run_newman.sh 
+``` 
